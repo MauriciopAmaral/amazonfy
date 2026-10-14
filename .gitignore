@@ -1,0 +1,12 @@
+node_modules
+dist
+deploy
+.env
+.vercel
+.DS_Store
+
+# Senha do banco — nunca versionar
+api/config.php
+
+# Arquivos enviados pelo painel admin (ficam só no servidor)
+/uploads

@@ -1,0 +1,19 @@
+# Amazunfy API — todas as rotas /api/* passam pelo index.php
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Bloqueia acesso direto aos arquivos internos (senha do banco etc.)
+<FilesMatch "^(config|config\.example|bootstrap|resources|auth|upload)\.php$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
